@@ -3,47 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <title>Preventive Health Monitor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
 <div class="container">
+
   <h1>🧠 Preventive Health Assessment</h1>
+  <p class="subtitle">
+    Data-based health pattern analysis • Preventive monitoring • Doctor-friendly
+  </p>
 
-  <input id="age" placeholder="Age" type="number">
-  <input id="height" placeholder="Height (cm)" type="number">
-  <input id="weight" placeholder="Weight (kg)" type="number">
+  <!-- BASIC -->
+  <section>
+    <h2>Basic Information</h2>
+    <input id="age" type="number" placeholder="Age (years)">
+    <input id="height" type="number" placeholder="Height (cm)">
+    <input id="weight" type="number" placeholder="Weight (kg)">
+  </section>
 
-  <select id="hairFall">
-    <option value="none">Hair fall: None</option>
-    <option value="mild">Hair fall: Mild</option>
-    <option value="heavy">Hair fall: Heavy</option>
-  </select>
+  <!-- BODY & ENERGY -->
+  <section>
+    <h2>Body & Energy</h2>
 
-  <select id="energy">
-    <option value="good">Energy: Good</option>
-    <option value="average">Energy: Average</option>
-    <option value="low">Energy: Low</option>
-  </select>
+    <select id="hairFall">
+      <option value="none">Hair fall: None</option>
+      <option value="mild">Hair fall: Mild</option>
+      <option value="heavy">Hair fall: Heavy</option>
+    </select>
 
-  <select id="gas">
-    <option value="none">Gas/Bloating: None</option>
-    <option value="occasional">Occasional</option>
-    <option value="frequent">Frequent</option>
-  </select>
+    <select id="energy">
+      <option value="good">Energy level: Good</option>
+      <option value="average">Energy level: Average</option>
+      <option value="low">Energy level: Low</option>
+    </select>
 
-  <select id="water">
-    <option value="3">Water ≥ 3L</option>
-    <option value="2">Water ~2L</option>
-    <option value="1">Water &lt;1.5L</option>
-  </select>
+    <select id="jointPain">
+      <option value="none">Joint pain: None</option>
+      <option value="mild">Joint pain: Mild</option>
+      <option value="moderate">Joint pain: Moderate</option>
+      <option value="severe">Joint pain: Severe</option>
+    </select>
+  </section>
 
+  <!-- HYDRATION & URINE -->
+  <section>
+    <h2>Hydration & Urine</h2>
+
+    <select id="water">
+      <option value="3">Water intake: ≥3 L/day</option>
+      <option value="2">Water intake: ~2 L/day</option>
+      <option value="1.5">Water intake: &lt;2 L/day</option>
+    </select>
+
+    <select id="urineColor">
+      <option value="pale">Urine color: Pale / Clear</option>
+      <option value="yellow">Urine color: Yellow</option>
+      <option value="dark">Urine color: Dark</option>
+    </select>
+  </section>
+
+  <!-- DIGESTION -->
+  <section>
+    <h2>Digestion & Bowel Habits</h2>
+
+    <select id="gas">
+      <option value="none">Gas / bloating: None</option>
+      <option value="occasional">Gas / bloating: Occasional</option>
+      <option value="frequent">Gas / bloating: Frequent</option>
+    </select>
+
+    <select id="motion">
+      <option value="daily">Bowel motion: Daily</option>
+      <option value="irregular">Bowel motion: Irregular</option>
+      <option value="constipated">Bowel motion: Constipation tendency</option>
+    </select>
+  </section>
+
+  <!-- DIET -->
+  <section>
+    <h2>Diet Pattern</h2>
+
+    <select id="oilyFood">
+      <option value="low">Oily / fried food: Rare</option>
+      <option value="medium">Oily / fried food: Moderate</option>
+      <option value="high">Oily / fried food: Frequent</option>
+    </select>
+  </section>
+
+  <!-- LIFESTYLE -->
+  <section>
+    <h2>Lifestyle</h2>
+
+    <select id="exercise">
+      <option value="regular">Physical activity: Regular</option>
+      <option value="moderate">Physical activity: Moderate</option>
+      <option value="none">Physical activity: Minimal</option>
+    </select>
+
+    <select id="sleep">
+      <option value="good">Sleep quality: Good</option>
+      <option value="average">Sleep quality: Average</option>
+      <option value="poor">Sleep quality: Poor</option>
+    </select>
+  </section>
+
+  <!-- ACTION -->
   <button onclick="runAnalysis()">Analyze Health</button>
 
+  <!-- OUTPUT -->
   <pre id="output"></pre>
+
+  <p class="disclaimer">
+    ⚠ This assessment provides preventive health insights and is not a medical diagnosis.
+  </p>
+
 </div>
 
+<!-- JS FILES -->
 <script src="dataModel.js"></script>
 <script src="normalization.js"></script>
 <script src="riskEngines.js"></script>
@@ -51,6 +129,8 @@
 <script src="testSelector.js"></script>
 <script src="improvement.js"></script>
 <script src="analyzer.js"></script>
+<script src="reportFormatter.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>
