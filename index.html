@@ -3,233 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <title>Health Monitor Survey</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #ffffff;
-      padding: 20px;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    .section {
-      margin-bottom: 25px;
-      padding: 15px;
-      border-left: 4px solid #3498db;
-      background: #fafafa;
-    }
-    label {
-      display: block;
-      margin-top: 8px;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 4px;
-    }
-    .checkbox-group label {
-      display: inline-block;
-      margin-right: 15px;
-    }
-    button {
-      background: #3498db;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #2980b9;
-    }
-    .result {
-      margin-top: 30px;
-      padding: 20px;
-      background: #eaf6ff;
-      border-left: 5px solid #27ae60;
-    }
-    .warning {
-      border-left-color: #e67e22;
-      background: #fff4e6;
-    }
-    .danger {
-      border-left-color: #e74c3c;
-      background: #fdecea;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 <div class="container">
-  <h1>🩺 Personal Health Monitoring Survey</h1>
-  <p>This survey helps identify health risks early and suggests monitoring & preventive actions.</p>
+  <h1>🩺 Preventive Health Monitor</h1>
+  <p class="subtitle">Early detection • Prevention • Monitoring</p>
 
-  <!-- Basic Info -->
-  <div class="section">
-    <h2>1. Basic Information</h2>
-    <label>Age
-      <input type="number" id="age">
-    </label>
-    <label>Gender
-      <select id="gender">
-        <option value="">Select</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-      </select>
-    </label>
-    <label>Height (cm)
-      <input type="number" id="height">
-    </label>
-    <label>Weight (kg)
-      <input type="number" id="weight">
-    </label>
-  </div>
+  <!-- BASIC -->
+  <section>
+    <h2>Basic Details</h2>
+    <input id="age" type="number" placeholder="Age">
+    <select id="gender">
+      <option value="">Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+    <input id="height" type="number" placeholder="Height (cm)">
+    <input id="weight" type="number" placeholder="Weight (kg)">
+  </section>
 
-  <!-- Lifestyle -->
-  <div class="section">
-    <h2>2. Daily Lifestyle</h2>
-    <label>Sleep (hours/day)
-      <select id="sleep">
-        <option value="good">7–9 hours</option>
-        <option value="average">5–6 hours</option>
-        <option value="poor">Less than 5 hours</option>
-      </select>
-    </label>
+  <!-- LIFESTYLE -->
+  <section>
+    <h2>Lifestyle</h2>
+    <select id="sleep">
+      <option value="good">Sleep: 7–9 hrs</option>
+      <option value="average">Sleep: 5–6 hrs</option>
+      <option value="poor">Sleep: &lt;5 hrs</option>
+    </select>
 
-    <label>Water intake
-      <select id="water">
-        <option value="good">2–3 liters</option>
-        <option value="average">1–2 liters</option>
-        <option value="poor">Less than 1 liter</option>
-      </select>
-    </label>
+    <select id="exercise">
+      <option value="regular">Exercise: Regular</option>
+      <option value="moderate">Exercise: Moderate</option>
+      <option value="none">Exercise: None</option>
+    </select>
 
-    <label>Smoking / Alcohol
-      <select id="habits">
-        <option value="none">None</option>
-        <option value="occasional">Occasional</option>
-        <option value="regular">Regular</option>
-      </select>
-    </label>
-  </div>
+    <select id="alcohol">
+      <option value="none">Alcohol/Smoking: None</option>
+      <option value="occasional">Occasional</option>
+      <option value="regular">Regular</option>
+    </select>
+  </section>
 
-  <!-- Diet -->
-  <div class="section">
-    <h2>3. Food Habits</h2>
-    <label>Diet Type
-      <select id="diet">
-        <option>Vegetarian</option>
-        <option>Non-Vegetarian</option>
-        <option>Vegan</option>
-      </select>
-    </label>
+  <!-- DIET -->
+  <section>
+    <h2>Diet</h2>
+    <select id="diet">
+      <option>Vegetarian</option>
+      <option>Non-Vegetarian</option>
+    </select>
 
-    <label>Junk / Processed food
-      <select id="junk">
-        <option value="low">Rare</option>
-        <option value="medium">2–3 times/week</option>
-        <option value="high">Daily</option>
-      </select>
-    </label>
-  </div>
+    <select id="junk">
+      <option value="low">Junk Food: Rare</option>
+      <option value="medium">2–3 times/week</option>
+      <option value="high">Daily</option>
+    </select>
+  </section>
 
-  <!-- Exercise -->
-  <div class="section">
-    <h2>4. Physical Activity</h2>
-    <label>Exercise frequency
-      <select id="exercise">
-        <option value="regular">5–6 days/week</option>
-        <option value="moderate">2–3 days/week</option>
-        <option value="none">Rare / None</option>
-      </select>
-    </label>
-  </div>
+  <!-- DISEASE -->
+  <section>
+    <h2>Existing Conditions</h2>
+    <label><input type="checkbox" value="diabetes"> Diabetes</label>
+    <label><input type="checkbox" value="crohns"> Crohn’s / Colitis</label>
+    <label><input type="checkbox" value="cardiac"> Heart / BP</label>
+  </section>
 
-  <!-- Health Problems -->
-  <div class="section">
-    <h2>5. Existing Health Issues</h2>
-    <div class="checkbox-group">
-      <label><input type="checkbox" value="diabetes"> Diabetes</label>
-      <label><input type="checkbox" value="bp"> Blood Pressure</label>
-      <label><input type="checkbox" value="thyroid"> Thyroid</label>
-      <label><input type="checkbox" value="heart"> Heart Issues</label>
-      <label><input type="checkbox" value="digestive"> Digestive / Gut issues</label>
-    </div>
-  </div>
+  <button onclick="analyze()">Analyze Health</button>
+  <button class="secondary" onclick="downloadPDF()">Download PDF</button>
 
-  <!-- Symptoms -->
-  <div class="section">
-    <h2>6. Current Symptoms (if any)</h2>
-    <textarea id="symptoms" rows="4"
-      placeholder="Fatigue, pain, dizziness, breathlessness, digestion issues, etc."></textarea>
-  </div>
-
-  <button onclick="analyzeHealth()">Analyze My Health</button>
-
-  <!-- Result -->
-  <div id="result" class="result" style="display:none;"></div>
-
+  <!-- RESULTS -->
+  <section id="result" class="result hidden"></section>
 </div>
 
-<script>
-function analyzeHealth() {
-  let result = document.getElementById("result");
-  result.style.display = "block";
-  result.innerHTML = "<h2>📊 Health Insights & Recommendations</h2>";
-
-  let warnings = [];
-
-  if (document.getElementById("sleep").value === "poor")
-    warnings.push("Improve sleep: Chronic sleep deprivation increases heart, sugar & mental health risks.");
-
-  if (document.getElementById("water").value === "poor")
-    warnings.push("Low hydration detected: Monitor kidney health & digestion.");
-
-  if (document.getElementById("exercise").value === "none")
-    warnings.push("Low physical activity: Risk of obesity, diabetes & BP.");
-
-  if (document.getElementById("junk").value === "high")
-    warnings.push("High junk food intake: Monitor cholesterol, sugar & liver health.");
-
-  if (warnings.length === 0) {
-    result.innerHTML += "<p>✅ Your lifestyle appears generally balanced. Maintain consistency.</p>";
-  } else {
-    result.classList.add("warning");
-    result.innerHTML += "<ul>";
-    warnings.forEach(w => result.innerHTML += "<li>" + w + "</li>");
-    result.innerHTML += "</ul>";
-  }
-
-  result.innerHTML += `
-    <h3>🧪 Suggested Monitoring Tests</h3>
-    <ul>
-      <li>Blood Sugar (Fasting & HbA1c)</li>
-      <li>Lipid Profile</li>
-      <li>Blood Pressure</li>
-      <li>Vitamin D & B12</li>
-      <li>Liver & Kidney Function</li>
-    </ul>
-
-    <h3>👨‍⚕️ Doctor Follow-up (if risks persist)</h3>
-    <ul>
-      <li>General Physician</li>
-      <li>Nutritionist / Dietician</li>
-      <li>Endocrinologist (Sugar / Thyroid)</li>
-      <li>Cardiologist (if BP / chest symptoms)</li>
-    </ul>
-
-    <p><strong>⚠ Disclaimer:</strong> This is a preventive health tool and not a medical diagnosis.</p>
-  `;
-}
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
