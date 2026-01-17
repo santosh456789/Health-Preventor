@@ -1,39 +1,18 @@
 function metabolicRisk(d) {
-  let bmi = d.body.weightKg / ((d.body.heightCm / 100) ** 2);
-  return (
-    (bmi > 25 ? 0.6 : 0.2) +
-    (d.lifestyle.exercise === "none" ? 0.6 : 0.2)
-  ) / 2;
-}
+  const bmi = d.body.weightKg / ((d.body.heightCm / 100) ** 2);
 
-function gutRisk(d) {
-  return (
-    map.gas[d.digestion.gasBloating] +
-    (d.digestion.motionFrequency !== "daily" ? 0.6 : 0.2)
-  ) / 2;
-}
+  let score = 0;
 
-function hydrationRisk(d) {
-  return (
-    (d.hydration.waterLiters < 2 ? 0.6 : 0.2) +
-    map.urineColor[d.hydration.urineColor]
-  ) / 2;
-}
+  // BMI contribution
+  if (bmi < 18.5) score += 0.4;
+  else if (bmi < 25) score += 0.2;
+  else if (bmi < 30) score += 0.7;   // IMPORTANT
+  else score += 0.9;
 
-function nutritionRisk(d) {
-  return (
-    map.hairFall[d.body.hairFall] +
-    map.energy[d.body.energy]
-  ) / 2;
-}
+  // Activity contribution
+  if (d.lifestyle.exercise === "none") score += 0.6;
+  else if (d.lifestyle.exercise === "moderate") score += 0.3;
+  else score += 0.1;
 
-function musculoskeletalRisk(d) {
-  return map.jointPain[d.body.jointPain];
-}
-
-function lifestyleRisk(d) {
-  return (
-    map.sleep[d.lifestyle.sleep] +
-    (d.lifestyle.exercise === "none" ? 0.6 : 0.2)
-  ) / 2;
+  return Math.min(score / 2, 1);
 }
