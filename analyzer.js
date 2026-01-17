@@ -1,4 +1,6 @@
 function analyzeHealth(d) {
+  const bmi = d.body.weightKg / ((d.body.heightCm / 100) ** 2);
+
   const risks = {
     metabolic: metabolicRisk(d),
     digestive: gutRisk(d),
@@ -9,6 +11,7 @@ function analyzeHealth(d) {
   };
 
   return {
+    bmi: bmi.toFixed(1),
     risks,
     tests: selectTests(risks),
     plan: improvementPlan(risks)
