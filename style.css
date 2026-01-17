@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
   background: #f2f5f7;
 }
@@ -7,30 +6,14 @@ body {
 .container {
   max-width: 700px;
   margin: auto;
-  padding: 15px;
-  background: #fff;
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-}
-
-section {
-  margin-bottom: 20px;
+  background: white;
+  padding: 20px;
 }
 
 input, select, button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   margin-top: 10px;
-  font-size: 15px;
 }
 
 button {
@@ -40,24 +23,8 @@ button {
   cursor: pointer;
 }
 
-button.secondary {
-  background: #2ecc71;
-  margin-top: 10px;
-}
-
-.result {
+pre {
+  background: #eef6ff;
   padding: 15px;
   margin-top: 20px;
-  background: #ecf9ff;
-  border-left: 5px solid #3498db;
-}
-
-.hidden {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  input, select {
-    font-size: 16px;
-  }
 }
