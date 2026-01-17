@@ -1,82 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Health Monitor Survey</title>
+  <meta charset="UTF-8" />
+  <title>Preventive Health Monitor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
 <div class="container">
-  <h1>🩺 Preventive Health Monitor</h1>
-  <p class="subtitle">Early detection • Prevention • Monitoring</p>
+  <h1>🧠 Preventive Health Assessment</h1>
 
-  <!-- BASIC -->
-  <section>
-    <h2>Basic Details</h2>
-    <input id="age" type="number" placeholder="Age">
-    <select id="gender">
-      <option value="">Gender</option>
-      <option>Male</option>
-      <option>Female</option>
-    </select>
-    <input id="height" type="number" placeholder="Height (cm)">
-    <input id="weight" type="number" placeholder="Weight (kg)">
-  </section>
+  <input id="age" placeholder="Age" type="number">
+  <input id="height" placeholder="Height (cm)" type="number">
+  <input id="weight" placeholder="Weight (kg)" type="number">
 
-  <!-- LIFESTYLE -->
-  <section>
-    <h2>Lifestyle</h2>
-    <select id="sleep">
-      <option value="good">Sleep: 7–9 hrs</option>
-      <option value="average">Sleep: 5–6 hrs</option>
-      <option value="poor">Sleep: &lt;5 hrs</option>
-    </select>
+  <select id="hairFall">
+    <option value="none">Hair fall: None</option>
+    <option value="mild">Hair fall: Mild</option>
+    <option value="heavy">Hair fall: Heavy</option>
+  </select>
 
-    <select id="exercise">
-      <option value="regular">Exercise: Regular</option>
-      <option value="moderate">Exercise: Moderate</option>
-      <option value="none">Exercise: None</option>
-    </select>
+  <select id="energy">
+    <option value="good">Energy: Good</option>
+    <option value="average">Energy: Average</option>
+    <option value="low">Energy: Low</option>
+  </select>
 
-    <select id="alcohol">
-      <option value="none">Alcohol/Smoking: None</option>
-      <option value="occasional">Occasional</option>
-      <option value="regular">Regular</option>
-    </select>
-  </section>
+  <select id="gas">
+    <option value="none">Gas/Bloating: None</option>
+    <option value="occasional">Occasional</option>
+    <option value="frequent">Frequent</option>
+  </select>
 
-  <!-- DIET -->
-  <section>
-    <h2>Diet</h2>
-    <select id="diet">
-      <option>Vegetarian</option>
-      <option>Non-Vegetarian</option>
-    </select>
+  <select id="water">
+    <option value="3">Water ≥ 3L</option>
+    <option value="2">Water ~2L</option>
+    <option value="1">Water &lt;1.5L</option>
+  </select>
 
-    <select id="junk">
-      <option value="low">Junk Food: Rare</option>
-      <option value="medium">2–3 times/week</option>
-      <option value="high">Daily</option>
-    </select>
-  </section>
+  <button onclick="runAnalysis()">Analyze Health</button>
 
-  <!-- DISEASE -->
-  <section>
-    <h2>Existing Conditions</h2>
-    <label><input type="checkbox" value="diabetes"> Diabetes</label>
-    <label><input type="checkbox" value="crohns"> Crohn’s / Colitis</label>
-    <label><input type="checkbox" value="cardiac"> Heart / BP</label>
-  </section>
-
-  <button onclick="analyze()">Analyze Health</button>
-  <button class="secondary" onclick="downloadPDF()">Download PDF</button>
-
-  <!-- RESULTS -->
-  <section id="result" class="result hidden"></section>
+  <pre id="output"></pre>
 </div>
 
+<script src="dataModel.js"></script>
+<script src="normalization.js"></script>
+<script src="riskEngines.js"></script>
+<script src="correlation.js"></script>
+<script src="testSelector.js"></script>
+<script src="improvement.js"></script>
+<script src="analyzer.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
