@@ -11,7 +11,7 @@ function analyzeHealth(d) {
   };
 
   return {
-    bmi: parseFloat(bmi.toFixed(1)),
+    bmi: bmi.toFixed(1),
     risks,
     tests: selectTests(risks),
     plan: improvementPlan(risks)
